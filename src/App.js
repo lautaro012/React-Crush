@@ -8,7 +8,7 @@ import REACT from './Components/Icons/REACT.png'
 import VUE from './Components/Icons/VUE.png'
 import JS from './Components/Icons/JS.png'
 import HTML from './Components/Icons/HTML.png'
-import BOOTSTRAPP from './Components/Icons/BOOTSTRAPP.jpg'
+import BOOTSTRAPP from './Components/Icons/BOOTSTRAPP.png'
 import BLANK from './Components/Icons/BLANK.png'
 import Timer from './Components/Timer/Timer'
 const width = 8;
