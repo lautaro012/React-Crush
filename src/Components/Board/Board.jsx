@@ -29,11 +29,14 @@ export default function Board ( {boardGenerator, width, rowsOfThree, rowsOfFour,
           parseInt(ColorDraggedId) + width,
           ColorDraggedId - width
         ]
-      
-        boardGenerator[colorReplacedId] = colorDragged.getAttribute('src')
-        boardGenerator[ColorDraggedId] = colorReplaced.getAttribute('src')
-
         const isValid = validMoves.includes(parseInt(colorReplacedId))
+        console.log(isValid)
+        if(isValid) {
+
+          boardGenerator[colorReplacedId] = colorDragged.getAttribute('src')
+          boardGenerator[ColorDraggedId] = colorReplaced.getAttribute('src')
+        }
+
 
         const isARowOfThree = rowsOfThree()
         const isARowOfFour = rowsOfFour()
@@ -46,7 +49,7 @@ export default function Board ( {boardGenerator, width, rowsOfThree, rowsOfFour,
         } else {
           boardGenerator[colorReplacedId] = colorReplaced.getAttribute('src')
           boardGenerator[ColorDraggedId] = colorDragged.getAttribute('src')
-            newboard(boardGenerator)
+          newboard(boardGenerator)
         }
 
     }

@@ -10,6 +10,7 @@ import JS from './Components/Icons/JS.jpg'
 import HTML from './Components/Icons/HTML.jpg'
 import BOOTSTRAPP from './Components/Icons/BOOTSTRAPP.jpg'
 import BLANK from './Components/Icons/BLANK.png'
+import Timer from './Components/Timer/Timer'
 const width = 8;
 
 const candyColors = [
@@ -140,6 +141,7 @@ function App() {
 
   return (
     <div className="App">
+        <Timer></Timer>
         <Board
         boardGenerator={boardGenerator} 
         width={width} 
