@@ -5,9 +5,9 @@ import { useEffect, useState } from 'react';
 import Board from './Components/Board/Board';
 import ANGULAR from './Components/Icons/ANGULAR.png'
 import REACT from './Components/Icons/REACT.png'
-import VUE from './Components/Icons/VUE.jpg'
-import JS from './Components/Icons/JS.jpg'
-import HTML from './Components/Icons/HTML.jpg'
+import VUE from './Components/Icons/VUE.png'
+import JS from './Components/Icons/JS.png'
+import HTML from './Components/Icons/HTML.png'
 import BOOTSTRAPP from './Components/Icons/BOOTSTRAPP.jpg'
 import BLANK from './Components/Icons/BLANK.png'
 import Timer from './Components/Timer/Timer'

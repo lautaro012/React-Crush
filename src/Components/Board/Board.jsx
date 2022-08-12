@@ -30,9 +30,8 @@ export default function Board ( {boardGenerator, width, rowsOfThree, rowsOfFour,
           ColorDraggedId - width
         ]
         const isValid = validMoves.includes(parseInt(colorReplacedId))
-        console.log(isValid)
+        
         if(isValid) {
-
           boardGenerator[colorReplacedId] = colorDragged.getAttribute('src')
           boardGenerator[ColorDraggedId] = colorReplaced.getAttribute('src')
         }
