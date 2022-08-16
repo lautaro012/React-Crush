@@ -35,3 +35,9 @@
 h1 {
     color: ghostwhite;
 }
+
+.about{
+    position: absolute;
+    top: 0;
+    right: 0;
+}

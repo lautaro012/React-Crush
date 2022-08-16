@@ -11,6 +11,8 @@ import HTML from './Components/Icons/HTML.png'
 import BOOTSTRAPP from './Components/Icons/BOOTSTRAPP.png'
 import BLANK from './Components/Icons/BLANK.png'
 import Timer from './Components/Timer/Timer'
+import Finalmessage from './Components/Finalmessage/Finalmessage';
+import About from './Components/About/About';
 const width = 8;
 
 const candyColors = [
@@ -29,6 +31,7 @@ function App() {
   const [score, setScore] = useState(0)
   const [moves, setMoves] = useState(0)
   const [timeOut, setTimeOut] = useState(false)
+  const [showAbout, setShowAbout] = useState(false)
 
 
   
@@ -157,6 +160,9 @@ function App() {
       }
       )
   }
+
+  const handleAbout = () => {showAbout ? setShowAbout(false) : setShowAbout(true)}
+     
   //useEffect for updates 
 
   useEffect(() => {
@@ -200,14 +206,26 @@ function App() {
       </div>
 
       {
-        remainingTime === 0 ?
-        
-          <button onClick={handleRefresh}> THANK YOU FOR PLAYING </button>
-          
+        remainingTime === 0 ? 
+          <Finalmessage
+          handleRefresh={handleRefresh}
+          score={score}
+          moves={moves}
+          />
         :
         null
       }
-
+      {
+        showAbout ?
+        <About
+        setShowAbout={handleAbout}
+        />
+        :
+        null
+      }
+      <div className='about'>
+        <button onClick={handleAbout}><h2>About Me</h2></button>
+      </div>
     </div>
   );
 }

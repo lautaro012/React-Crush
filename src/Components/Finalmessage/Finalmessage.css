@@ -1,0 +1,14 @@
+.finalmessage {
+    background-color: #ffffff;
+    backdrop-filter: blur(2px);
+    position: absolute;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 25px;
+    border: 2px solid #e91e63;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    height: 40%;
+}
