@@ -1,6 +1,10 @@
 body {
-  background-color: ghostwhite;
-  margin: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: currentcolor;
+  background-image: url('https://blog.logrocket.com/wp-content/uploads/2020/02/reactnativesinglethread.png');
+  width: 100%;
+  height: 100%;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -12,3 +16,4 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+

@@ -1,10 +1,11 @@
 import React from "react";
 
-export default function Moves () {
+export default function Moves ({moves}) {
 
     return (
-        <div>
-            MOVES
+        <div className="details">
+            <h1> Moves </h1>
+            <h1>{moves}</h1>
         </div>
     )
 }

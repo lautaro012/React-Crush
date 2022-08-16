@@ -1,8 +1,8 @@
-export default function Timer () {
+export default function Timer ({remainingTime}) {
 
     return (
-        <div>
-            Timer
+        <div className="details">
+            <h1>{remainingTime}</h1>
         </div>
     )
 }

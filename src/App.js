@@ -25,8 +25,13 @@ const candyColors = [
 function App() {
 
   const [boardGenerator, setBoardGenerator] = useState([])
+  const [remainingTime, setRemainingTime] = useState(60)
   const [score, setScore] = useState(0)
+  const [moves, setMoves] = useState(0)
+  const [timeOut, setTimeOut] = useState(false)
 
+
+  
   const columnsOfThree = () => {
     //47 is exactly for a width of 8. excluding last rows
     for (let i = 0; i <= 47 ; i++) {
@@ -42,7 +47,6 @@ function App() {
       }
     }
   }
-  
   const rowsOfThree = () => {
     for (let i = 0; i < 64 ; i++) {
       const sucessRow = [i, i + 1, i + + 2]
@@ -59,7 +63,6 @@ function App() {
       }
     }
   }
-  
   const columnsOfFour = () => {
     //39 is exactly for a width of 8. excluding last rows
     for (let i = 0; i <= 39 ; i++) {
@@ -74,7 +77,6 @@ function App() {
       }
     }
   }
-
   const rowsOfFour = () => {
     for (let i = 0; i < 64 ; i++) {
       const sucessRow = [i, i + 1, i + 2, i + 3]
@@ -91,9 +93,8 @@ function App() {
       } 
     }
   }
-
   const moveColorsBelow = () => {
-    for (let i = 0; i < 55; i++) {
+    for (let i = 0; i < 56; i++) {
       const begining = [0,1,2,3,4,5,6,7]
       const isFirstRow = begining.includes(i)
 
@@ -109,6 +110,9 @@ function App() {
     }
   }
   
+  const addMove = () => {
+    setMoves( moves + 1)
+  }
   
   const createBoard = () => {
     const currentColor = []
@@ -123,8 +127,36 @@ function App() {
 
   useEffect(() => {
     createBoard()
+    gamestart()
+    const intervalid = setInterval (() => {
+      updateInterval()
+    }, 1000)
+    return () => clearInterval(intervalid)
   }, [])
 
+  function handleRefresh () {
+    window.location.reload();
+  }
+
+
+  function gamestart () {
+    console.log(timeOut)
+    setTimeOut(() => {
+      setTimeOut(true)
+    }, 6000);
+  }
+
+  function updateInterval () {
+    setRemainingTime(    
+      count => {
+        if(count > 0) {
+          return count - 1
+        } else {
+          return count
+        }
+      }
+      )
+  }
   //useEffect for updates 
 
   useEffect(() => {
@@ -139,9 +171,13 @@ function App() {
     return () => clearInterval(timer)
   }, [moveColorsBelow, columnsOfFour, rowsOfFour, columnsOfThree, rowsOfThree])
 
+
   return (
     <div className="App">
-        <Timer></Timer>
+      <div className='general_board'>
+        <Timer
+        remainingTime={remainingTime}
+        />
         <Board
         boardGenerator={boardGenerator} 
         width={width} 
@@ -150,11 +186,28 @@ function App() {
         columnsOfFour={columnsOfFour} 
         columnsOfThree={columnsOfThree}
         newboard={newboard => setBoardGenerator([...newboard])}
+        setMoves={addMove}
+        remainingTime={remainingTime}
         />
-      <Score
-      score={score}
-      />
-      <Moves/>
+      </div>
+      <div className='general_scores'>
+        <Score
+        score={score}
+        />
+        <Moves
+        moves={moves}
+        />
+      </div>
+
+      {
+        remainingTime === 0 ?
+        
+          <button onClick={handleRefresh}> THANK YOU FOR PLAYING </button>
+          
+        :
+        null
+      }
+
     </div>
   );
 }

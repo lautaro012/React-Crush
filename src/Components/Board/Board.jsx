@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import './Board.css'
 
 
-export default function Board ( {boardGenerator, width, rowsOfThree, rowsOfFour, columnsOfFour, columnsOfThree, newboard } ) {
+export default function Board ( {boardGenerator, width, rowsOfThree, rowsOfFour, columnsOfFour, columnsOfThree, newboard, setMoves, remainingTime} ) {
 
     const [colorDragged, setColorDragged] = useState(null)
     const [colorReplaced, setColorReplaced] = useState(null)
@@ -51,6 +51,7 @@ export default function Board ( {boardGenerator, width, rowsOfThree, rowsOfFour,
           newboard(boardGenerator)
         }
 
+        setMoves()
     }
 
     return (
@@ -64,7 +65,7 @@ export default function Board ( {boardGenerator, width, rowsOfThree, rowsOfFour,
                 key={index}
                 style={{backgroundColor: color}}
                 data={index}
-                draggable={true}
+                draggable={ remainingTime=== 0 ? false : true}
                 onDragStart={dragStart}
                 onDragOver={(e) => e.preventDefault()}
                 onDragEnter={(e) => e.preventDefault()}
