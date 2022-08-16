@@ -9,8 +9,8 @@ export default function About ({setShowAbout}) {
                     This website is made only whit React components and Javascript logic, please enjoy and if you like 
                         please look my other jobs in my github. Thank you !
             </text>
-            <span> https://github.com/lautaro012 </span>
-            <span> https://www.linkedin.com/in/lautaro-robles-57a5ba242/ </span>
+            <a href={"https://github.com/lautaro012"}>My Github!</a>
+            <a href={"https://www.linkedin.com/in/lautaro-robles-57a5ba242/"}> My LinkedIn!</a>
         </div>
     )
 }
